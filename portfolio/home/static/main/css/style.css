@@ -8,3 +8,12 @@ section {
     padding-top: 60px;
     padding-bottom: 60px;
 }
+.card-img-top {
+  height: 100px;         /* fixed height */
+  object-fit: cover;     /* crop to fit without distortion */
+}
+.about-img {
+  height: 250px;       /* control height */
+  width: 250px;        /* keep width equal for circle */
+  object-fit: cover;   /* crop instead of stretch */
+}

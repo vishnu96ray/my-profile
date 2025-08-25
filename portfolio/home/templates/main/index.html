@@ -32,20 +32,25 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<header class="vh-100 d-flex align-items-center text-center text-white" style="background: url('https://picsum.photos/1920/1080?random=1') center/cover no-repeat;">
-<div class="container" data-aos="fade-up">
-<h1 class="display-3 fw-bold">Hi, I'm Vishnu Kant Ray</h1>
-<p class="lead">A passionate Full Stack Developer from Faridabad</p>
-<a href="#contact" class="btn btn-primary btn-lg mt-3"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
-</div>
+<header class="vh-100 d-flex align-items-center text-center text-white" 
+        style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+               url('{% static 'main/images/profile.png' %}') center/cover no-repeat;">
+  <div class="container" data-aos="fade-up">
+    <h1 class="display-3 fw-bold">Hi, I'm Vishnu Kant Ray</h1>
+    <p class="lead">A passionate Full Stack Developer from Faridabad</p>
+    <a href="#contact" class="btn btn-primary btn-lg mt-3">
+      <i class="fa-solid fa-paper-plane"></i> Contact Me
+    </a>
+  </div>
 </header>
+
 <!-- About Section -->
 <section id="about" class="py-5">
 <div class="container text-center">
 <h2 class="fw-bold mb-4" data-aos="fade-down">About Me</h2>
 <div class="row align-items-center">
 <div class="col-md-4" data-aos="fade-right">
-<img src="https://picsum.photos/400/400?random=2" class="rounded-circle img-fluid shadow" alt="Vishnu Kant Ray">
+<img src="{% static 'main/images/vishnu.jpeg' %}" class="rounded-circle img-fluid shadow about-img" alt="Vishnu Kant Ray">
 </div>
 <div class="col-md-8 text-start" data-aos="fade-left">
 <p class="fs-5">
@@ -73,44 +78,61 @@
 </div>
 </div>
 </section>
+
 <!-- Projects -->
 <section id="projects" class="py-5">
-<div class="container">
-<h2 class="fw-bold text-center mb-5" data-aos="fade-up">My Projects</h2>
-<div class="row g-4">
-<div class="col-md-4" data-aos="flip-left">
-<div class="card shadow">
-<img src="{% static 'main/images/job_search.jpeg' %}" class="card-img-top" alt="Job Portal">
-<div class="card-body">
-<h5 class="card-title">Job Portal</h5>
-<p class="card-text">A website for job listings and applications.</p>
-<a href="https://github.com/vishnu96ray/job-portal" class="btn btn-outline-primary">View Project</a>
-</div>
-</div>
-</div>
-<div class="col-md-4" data-aos="flip-left">
-<div class="card shadow">
-<img src="https://picsum.photos/500/300?random=4" class="card-img-top" alt="Playstation Clone">
-<div class="card-body">
-<h5 class="card-title">Playstation Clone Website</h5>
-<p class="card-text">Shopping website made with HTML, CSS, JS & GSAP animations.</p>
-<a href="#" class="btn btn-outline-primary">View Project</a>
-</div>
-</div>
-</div>
-<div class="col-md-4" data-aos="flip-left">
-<div class="card shadow">
-<img src="https://picsum.photos/500/300?random=5" class="card-img-top" alt="Weather App">
-<div class="card-body">
-<h5 class="card-title">Weather App</h5>
-<p class="card-text">Real-time weather forecast app built using React.js library.</p>
-<a href="#" class="btn btn-outline-primary">View Project</a>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <h2 class="fw-bold text-center mb-5" data-aos="fade-up">My Projects</h2>
+    <div class="row g-3">
+
+      <div class="col-md-3" data-aos="flip-left">
+        <div class="card shadow h-100">
+          <img src="{% static 'main/images/job_search.jpeg' %}" class="card-img-top" alt="Job Portal">
+          <div class="card-body">
+            <h5 class="card-title">Job Portal</h5>
+            <p class="card-text">A website for job listings and applications.</p>
+            <a href="https://github.com/vishnu96ray/job-portal" class="btn btn-outline-primary">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="flip-left">
+        <div class="card shadow h-100">
+          <img src="{% static 'main/images/blog.png' %}" class="card-img-top" alt="Blog">
+          <div class="card-body">
+            <h5 class="card-title">Website for Content Management Solution</h5>
+            <p class="card-text">A personal blog website built with Django and Bootstrap.</p>
+            <a href="https://github.com/vishnu96ray/blog_test" class="btn btn-outline-primary">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="flip-left">
+        <div class="card shadow h-100">
+          <img src="{% static 'main/images/doctor.png' %}" class="card-img-top" alt="Doctors">
+          <div class="card-body">
+            <h5 class="card-title">Doctor Appointment & Information System</h5>
+            <p class="card-text">A web application for managing doctor appointments and patient information.</p>
+            <a href="https://github.com/vishnu96ray/doctors" class="btn btn-outline-primary">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" data-aos="flip-left">
+        <div class="card shadow h-100">
+          <img src="{% static 'main/images/e-commerce.jpg' %}" class="card-img-top" alt=" E-Commerce">
+          <div class="card-body">
+            <h5 class="card-title">E-Commerce Website</h5>
+            <p class="card-text">A full-featured e-commerce platform built with Django and React.</p>
+            <a href="https://github.com/vishnu96ray/mg_one" class="btn btn-outline-primary">View Project</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
 <!-- Contact -->
 <section id="contact" class="bg-light py-5">
 <div class="container">
