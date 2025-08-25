@@ -166,6 +166,13 @@
 <section id="contact" class="bg-light py-5">
 <div class="container">
 <h2 class="fw-bold text-center mb-4" data-aos="fade-up">Get in Touch</h2>
+{% if message %}
+{% for msg in message %}
+<div class="alert alert-{{ msg.tags|join:' ' }} text-center" role="alert">
+    {{ msg }}
+</div>
+{% endfor %}
+{% endif %}
 <form class="row g-3 mt-3" method="post" data-aos="fade-up">
      {% csrf_token %}
 <div class="col-md-6">
