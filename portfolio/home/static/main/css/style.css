@@ -1,0 +1,10 @@
+body {
+    scroll-behavior: smooth;
+}
+header {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
