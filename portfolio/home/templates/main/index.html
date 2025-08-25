@@ -32,17 +32,46 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<header class="vh-100 d-flex align-items-center text-center text-white" 
-        style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-               url('{% static 'main/images/profile.png' %}') center/cover no-repeat;">
-  <div class="container" data-aos="fade-up">
-    <h1 class="display-3 fw-bold">Hi, I'm Vishnu Kant Ray</h1>
-    <p class="lead">A passionate Full Stack Developer from Faridabad</p>
-    <a href="#contact" class="btn btn-primary btn-lg mt-3">
-      <i class="fa-solid fa-paper-plane"></i> Contact Me
-    </a>
+
+<!-- Hero Section -->
+<header class="vh-100 d-flex align-items-center bg-dark text-white">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Side: Intro + Social Links -->
+      <div class="col-md-6 text-center text-md-start" data-aos="fade-right">
+        <h2 class="fw-light">Hi,</h2>
+        <h1 class="fw-bold display-5">
+          My name is <span class="text-primary">Vishnu Kant Ray</span>
+        </h1>
+        <p class="lead">I develop things for the web!</p>
+
+        <!-- Social Media Links -->
+        <div class="d-flex gap-3 justify-content-center justify-content-md-start mt-3">
+          <a href="https://github.com/vishnu96ray" target="_blank" class="text-white fs-3"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/vishnu-kant-ray-305376151/" target="_blank" class="text-white fs-3"><i class="fab fa-linkedin"></i></a>
+          {% comment %} <a href="https://twitter.com/vishnu96ray" target="_blank" class="text-white fs-3"><i class="fab fa-twitter"></i></a> {% endcomment %}
+          <a href="https://instagram.com/vikash_96_singh" target="_blank" class="text-white fs-3"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <!-- Contact Button -->
+        <a href="#contact" class="btn btn-outline-primary btn-lg mt-4">
+          <i class="fa-solid fa-paper-plane"></i> Contact Me
+        </a>
+      </div>
+
+      <!-- Right Side: Profile Illustration -->
+      <div class="col-md-6 text-center" data-aos="fade-left">
+        <img src="{% static 'main/images/profile.png' %}" 
+             alt="Profile Image" 
+             class="img-fluid" 
+             style="max-height: 400px;">
+      </div>
+
+    </div>
   </div>
 </header>
+
 
 <!-- About Section -->
 <section id="about" class="py-5">
