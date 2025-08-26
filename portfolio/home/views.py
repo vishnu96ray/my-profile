@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from .models import ContactMessage
-from django.conf import settings
-from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
+from .models import ContactMessage
+from .service import send_email
+from django.conf import settings
+
+# Replace this with your admin email
+ADMIN_EMAIL = "admin@gmail.com"
+
 
 def index(request):
     if request.method == "POST":
@@ -13,26 +17,56 @@ def index(request):
         if not name or not email or not message:
             return HttpResponse("All fields are required!", status=400)
 
-        # Save to database first
-        contact_message = ContactMessage.objects.create(
-            name=name,
-            email=email,
-            message=message
-        )
+        # Save message into database
+        ContactMessage.objects.create(name=name, email=email, message=message)
 
-        subject = f"New contact message from {name}"
-        full_message = f"Message: {message}\nFrom: {name}\nEmail: {email}"
+        # --- Email to Admin (you) ---
+        subject_admin = f"📩 New Contact Message from {name}"
+        full_message_admin = f"""
+Hello Admin,
+
+You have received a new contact message from your website.
+
+─────────────────────────────
+👤 Name: {name}
+📧 Email: {email}
+💬 Message:
+{message}
+─────────────────────────────
+
+Please reply to this message at: {email}
+"""
+        # --- Auto-reply to User ---
+        subject_user = "✅ Thanks for contacting us!"
+        full_message_user = f"""
+Hello {name},
+
+Thank you for reaching out to us. We have received your message and will get back to you soon.
+
+Here is a copy of your message:
+─────────────────────────────
+{message}
+─────────────────────────────
+
+Best regards,  
+Your Support Team
+"""
 
         try:
-            send_mail(
-                subject,
-                full_message,
-                settings.EMAIL_HOST_USER,
-                [settings.EMAIL_HOST_USER],
-                fail_silently=False
+            # Send to admin
+            send_email(
+                to=ADMIN_EMAIL,
+                subject=subject_admin,
+                message=full_message_admin
             )
-        except BadHeaderError:
-            return HttpResponse("Invalid header found.", status=400)
+
+            # Send acknowledgment to user
+            send_email(
+                to=email,
+                subject=subject_user,
+                message=full_message_user
+            )
+
         except Exception as e:
             return HttpResponse(f"Error sending email: {e}", status=500)
 

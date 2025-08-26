@@ -147,4 +147,4 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'vishnu96.ray@gmail.com' 
-EMAIL_HOST_PASSWORD = 'Kumarraj96' 
+EMAIL_HOST_PASSWORD = 'ehey jlkq ivjt npaw'
